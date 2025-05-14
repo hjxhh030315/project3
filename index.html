@@ -3,7 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Mouse Activity & Temp</title>
+    <title>How Does the Estrus Cycle Affect Female Mice’s Activity and Body Temperature?</title>
+
+
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <style>
         .axis-label {
@@ -18,13 +20,57 @@
 </head>
 
 <body>
-    <h2>Female Mouse Activity and Temperature Over Time</h2>
+    <h2>How Does the Estrus Cycle Affect Female Mice’s Activity and Body Temperature?</h2>
     <label>Select Mouse:
     <select id="mouseSelect"></select>
   </label>
     <svg width="1000" height="500"></svg>
+    <p>
+        <span style="color:steelblue;">Solid Line:</span> Activity Level |
+        <span style="color:tomato;">Dashed Line:</span> Temperature |
+        <span style="background-color:pink; padding:0 5px;">Shaded Area:</span> Estrus Period
+    </p>
+
     <div id="tooltip" style="position:absolute; background:#eee; padding:5px; border:1px solid #ccc; display:none;"></div>
 
+
+    <h2>Design Rationale</h2>
+    <p>
+        Our visualization is designed to answer the question:
+        <strong>"How does the estrus cycle influence female mice’s activity and body temperature, and how does that differ from male mice?"</strong>
+    </p>
+    <p>
+        We chose a <span class="highlight">dual-line time series plot</span> to represent the two physiological variables—<strong>activity level</strong> and <strong>core body temperature</strong>—over time, with separate y-axes for clarity. Activity
+        is represented by a <span class="highlight">solid steelblue line</span>, and temperature by a <span class="highlight">dashed tomato line</span>, helping users visually distinguish the two metrics.
+    </p>
+    <p>
+        To support pattern recognition, I added <span class="highlight">shaded pink rectangles</span> to highlight estrus periods (every 4 days starting from day 2), guiding viewers to key windows of biological change. A <strong>dropdown menu</strong>        allows users to isolate individual mice and view patterns more clearly, avoiding overplotting. We included <strong>tooltip hovers</strong> to provide exact numerical values for each minute, and a <strong>brushing tool</strong> to enable zooming
+        into specific time segments.
+    </p>
+    <p>
+        I considered alternatives like area charts and stacked bar plots, but found that line charts offered better continuity and rhythm detection for time-series data. Additionally, we debated overlaying all mice at once but decided to start with one-at-a-time
+        views to reduce visual clutter and support interpretability.
+    </p>
+
+    <h2>Development Process</h2>
+    <p>
+        Our team, <strong>DataPhobia</strong>, consists of <strong>Jessica, Neil, Alex, and Seichii</strong>.
+    </p>
+    <ul>
+        <li>Jessica led the development of the final interactive visualization, including data processing, D3.js implementation.</li>
+        <li>Neil, Alex, and Seichii helped brainstorm the central question and visualization design direction during the early phases.</li>
+        <li>Neil, Alex and Seichii also reviewed the implementation, provided feedback on usability, and contributed to exploratory data analysis (EDA) by generating static graphs to help shape the final approach.</li>
+    </ul>
+    <p>
+        We estimate that we spent roughly <strong>5 people-hours</strong> on this project. The most time-consuming parts were:
+    </p>
+    <ul>
+        <li><strong>Implementing dual-axis interactivity</strong> and brushing in D3.js.</li>
+        <li><strong>Fine-tuning the design and user experience</strong>, including axis labeling, hover tooltips, and estrus day overlays.</li>
+    </ul>
+    <p>
+        Through multiple iterations and peer testing, we refined our layout, interactions, and labeling to create an expressive and engaging visualization that clearly communicates our biological question.
+    </p>
     <script src="main.js"></script>
 </body>
 
