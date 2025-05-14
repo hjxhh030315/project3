@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Mouse Activity & Temp</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .axis-label {
+            font-size: 12px;
+        }
+        
+        .estrus-shade {
+            fill: pink;
+            opacity: 0.2;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Female Mouse Activity and Temperature Over Time</h2>
+    <label>Select Mouse:
+    <select id="mouseSelect"></select>
+  </label>
+    <svg width="1000" height="500"></svg>
+    <div id="tooltip" style="position:absolute; background:#eee; padding:5px; border:1px solid #ccc; display:none;"></div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
